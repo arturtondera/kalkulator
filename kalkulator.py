@@ -3,19 +3,30 @@ import logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s', filename="logfile.log")
 
 operation = input("Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie:")
-number1 = int(input("Podaj składnik 1.:"))
-number2 = int(input("Podaj składnik 2.:"))
+number1_int = None
+while isinstance(number1_int, int) is False:
+    number1 = input("Podaj składnik 1.:")
+    try:
+        number1_int = int(number1)
+    except ValueError:
+        print("To nie jest liczba")
+
+number2 = input("Podaj składnik 1.:")
+try:
+    number2_int = int(number2)
+except ValueError:
+    print("To nie jest liczba")
 product = None
 if operation == '1':
-    product = (number1 + number2)
-    logging.info("Dodaję", number1, "do", number2)
+    product = (number1_int + number2_int)
+    print("Dodaję", number1_int, "do", number2_int)
 elif operation == '2':
-    product = (number1 - number2)
-    logging.info('Odejmuję', number2, "od", number1)
+    product = (number1_int - number2_int)
+    print('Odejmuję', number2_int, "od", number1_int)
 elif operation == '3':
-    product = (number1 * number2)
-    logging.info("Mnożę", number1, "przez", number2)
+    product = (number1_int * number2_int)
+    print("Mnożę", number1_int, "przez", number2_int)
 elif operation == '4':
-    product = (number1 // number2)
-    logging.info("Dzielę", number1, "przez", number2)
+    product = (number1_int // number2_int)
+    print("Dzielę", number1_int, "przez", number2_int)
 print("Wynik działania to:", product)
