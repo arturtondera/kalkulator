@@ -10,8 +10,9 @@ while isinstance(number1_int, int) is False:
         number1_int = int(number1)
     except ValueError:
         print("To nie jest liczba")
-
-number2 = input("Podaj składnik 1.:")
+number2_int = None
+while isinstance(number2_int, int) is False:
+number2 = input("Podaj składnik 2.:")
 try:
     number2_int = int(number2)
 except ValueError:
